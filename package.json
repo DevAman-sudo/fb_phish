@@ -1,0 +1,25 @@
+{
+  "name": "fb_phish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevAman-sudo/fb_phish.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevAman-sudo/fb_phish/issues"
+  },
+  "homepage": "https://github.com/DevAman-sudo/fb_phish#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  }
+}
