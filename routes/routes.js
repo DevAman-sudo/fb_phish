@@ -1,8 +1,10 @@
 module.exports = function(app){
 
     // index page //
-    app.get('/', function(req, res){
+    app.get('/', (req, res) => {
         res.render('index');
     });
+    
+    
     
 };
