@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+:root {
+    --blue: #2170DB;
+    --dark-blue: #3B5999;
+    --yellow: #F6F6E4;
+    --milk-white: #E8E8F0;
+}
+
+html {
+    font-size: 62.5%;
+}
+body {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* header section */
+.facebook {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4.5rem;
+    margin-top: 1rem;
+}
+.facebook h1 {
+    color: var(--blue);
+    font-size: 3rem;
+}
+
+.get-facebook {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 4.5rem;
+    background: var(--yellow);
+}
+.get-facebook img {
+    width: 2rem;
+    height: 3.5rem;
+    object-fit: cover;
+    margin: 0 1rem;
+}
+.get-facebook p {
+    font-size: 1.4rem;
+    color: var(--dark-blue);
+}
+
+/* main section */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 30rem;
+}
+
+.main .form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+}
+
+.main .form .input {
+    width: 100%;
+    height: 4rem;
+    outline: 0;
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form .form-submit {
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+    background: var(--blue);
+    width: 100%;
+    height: 3.5rem;
+    outline: 0;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* span */
+.span {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+.span::before {
+    content: "";
+    position: absolute;
+    margin-top: 0.7rem;
+    left: 15%;
+    width: 10rem;
+    height: 0.1rem;
+    background: #ccc;
+}
+.span::after {
+    content: "";
+    position: absolute;
+    margin-top: 0.7rem;
+    right: 15%;
+    width: 10rem;
+    height: 0.1rem;
+    background: #ccc;
+}
+
+.create-button {
+    background: green;
+    border-radius: 0.5rem;
+    width: 20rem;
+    height: 4rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    outline: 0;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.f-password {
+    color: var(--blue);
+    margin-top: 0.7rem;
+    font-size: 1.2rem;
+}
+
+.others {
+    margin-top: 5rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.others .section {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#currentlang {
+    font-size: 1.5rem;
+    color: black;
+    opacity: .7;
+}
+
+#morelang {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    color: black;
+    border: 0.1rem solid black;
+    margin: 0.5rem auto 0 auto;
+    border-radius: 0.3rem;
+}
+
+/* facebook inc */
+.facebook-inc {
+    font-size: 1.3rem;
+    margin: 2rem auto;
+    opacity: .7;
+}
