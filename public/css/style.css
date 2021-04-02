@@ -50,6 +50,9 @@ body {
     object-fit: cover;
     margin: 0 1rem;
 }
+.get-facebook a {
+    text-decoration: none;
+}
 .get-facebook p {
     font-size: 1.4rem;
     color: var(--dark-blue);
