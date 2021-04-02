@@ -141,6 +141,9 @@ body {
     margin-top: 0.7rem;
     font-size: 1.2rem;
 }
+.f-password a {
+    text-decoration: none;
+}
 
 .others {
     margin-top: 5rem;
@@ -178,4 +181,7 @@ body {
     font-size: 1.3rem;
     margin: 2rem auto;
     opacity: .7;
+}
+.facebook-inc a {
+    text-decoration: none;
 }
